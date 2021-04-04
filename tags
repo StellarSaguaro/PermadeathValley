@@ -1,0 +1,397 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Arguments_must_be_floating_point_values	FastNoiseLite.h	/^struct FastNoiseLite::Arguments_must_be_floating_point_values<double> {};$/;"	s	class:FastNoiseLite
+Arguments_must_be_floating_point_values	FastNoiseLite.h	/^struct FastNoiseLite::Arguments_must_be_floating_point_values<float> {};$/;"	s	class:FastNoiseLite
+Arguments_must_be_floating_point_values	FastNoiseLite.h	/^struct FastNoiseLite::Arguments_must_be_floating_point_values<long double> {};$/;"	s	class:FastNoiseLite
+CC	Makefile	/^CC = g++ -std=c++11$/;"	m
+CC_FLAGS	Makefile	/^CC_FLAGS  = -Wall   # All Warnings$/;"	m
+CENTER	navigator.hh	/^    CENTER = 5,$/;"	e	enum:DIRECTION
+CalculateFractalBounding	FastNoiseLite.h	/^    void CalculateFractalBounding()$/;"	f	class:FastNoiseLite
+CellularDistanceFunction	FastNoiseLite.h	/^    enum CellularDistanceFunction$/;"	g	class:FastNoiseLite
+CellularDistanceFunction_Euclidean	FastNoiseLite.h	/^        CellularDistanceFunction_Euclidean,$/;"	e	enum:FastNoiseLite::CellularDistanceFunction
+CellularDistanceFunction_EuclideanSq	FastNoiseLite.h	/^        CellularDistanceFunction_EuclideanSq,$/;"	e	enum:FastNoiseLite::CellularDistanceFunction
+CellularDistanceFunction_Hybrid	FastNoiseLite.h	/^        CellularDistanceFunction_Hybrid$/;"	e	enum:FastNoiseLite::CellularDistanceFunction
+CellularDistanceFunction_Manhattan	FastNoiseLite.h	/^        CellularDistanceFunction_Manhattan,$/;"	e	enum:FastNoiseLite::CellularDistanceFunction
+CellularReturnType	FastNoiseLite.h	/^    enum CellularReturnType$/;"	g	class:FastNoiseLite
+CellularReturnType_CellValue	FastNoiseLite.h	/^        CellularReturnType_CellValue,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance	FastNoiseLite.h	/^        CellularReturnType_Distance,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance2	FastNoiseLite.h	/^        CellularReturnType_Distance2,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance2Add	FastNoiseLite.h	/^        CellularReturnType_Distance2Add,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance2Div	FastNoiseLite.h	/^        CellularReturnType_Distance2Div$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance2Mul	FastNoiseLite.h	/^        CellularReturnType_Distance2Mul,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CellularReturnType_Distance2Sub	FastNoiseLite.h	/^        CellularReturnType_Distance2Sub,$/;"	e	enum:FastNoiseLite::CellularReturnType
+CmpNodeDist	navigator.cc	/^struct CmpNodeDist {$/;"	s	file:
+CubicLerp	FastNoiseLite.h	/^    static float CubicLerp(float a, float b, float c, float d, float t)$/;"	f	class:FastNoiseLite
+DIRECTION	navigator.hh	/^enum DIRECTION {$/;"	g
+DoSingleDomainWarp	FastNoiseLite.h	/^    void DoSingleDomainWarp(int seed, float amp, float freq, FNfloat x, FNfloat y, FNfloat z, FNfloat& xr, FNfloat& yr, FNfloat& zr)$/;"	f	class:FastNoiseLite
+DoSingleDomainWarp	FastNoiseLite.h	/^    void DoSingleDomainWarp(int seed, float amp, float freq, FNfloat x, FNfloat y, FNfloat& xr, FNfloat& yr)$/;"	f	class:FastNoiseLite
+DomainWarp	FastNoiseLite.h	/^    void DomainWarp(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+DomainWarp	FastNoiseLite.h	/^    void DomainWarp(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+DomainWarpFractalIndependent	FastNoiseLite.h	/^    void DomainWarpFractalIndependent(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+DomainWarpFractalIndependent	FastNoiseLite.h	/^    void DomainWarpFractalIndependent(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+DomainWarpFractalProgressive	FastNoiseLite.h	/^    void DomainWarpFractalProgressive(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+DomainWarpFractalProgressive	FastNoiseLite.h	/^    void DomainWarpFractalProgressive(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+DomainWarpSingle	FastNoiseLite.h	/^    void DomainWarpSingle(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+DomainWarpSingle	FastNoiseLite.h	/^    void DomainWarpSingle(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+DomainWarpType	FastNoiseLite.h	/^    enum DomainWarpType$/;"	g	class:FastNoiseLite
+DomainWarpType_BasicGrid	FastNoiseLite.h	/^        DomainWarpType_BasicGrid$/;"	e	enum:FastNoiseLite::DomainWarpType
+DomainWarpType_OpenSimplex2	FastNoiseLite.h	/^        DomainWarpType_OpenSimplex2,$/;"	e	enum:FastNoiseLite::DomainWarpType
+DomainWarpType_OpenSimplex2Reduced	FastNoiseLite.h	/^        DomainWarpType_OpenSimplex2Reduced,$/;"	e	enum:FastNoiseLite::DomainWarpType
+EAST	navigator.hh	/^    EAST   = 6,$/;"	e	enum:DIRECTION
+FASTNOISELITE_H	FastNoiseLite.h	51;"	d
+FastAbs	FastNoiseLite.h	/^    static float FastAbs(float f) { return f < 0 ? -f : f; }$/;"	f	class:FastNoiseLite
+FastFloor	FastNoiseLite.h	/^    static int FastFloor(FNfloat f) { return f >= 0 ? (int)f : (int)f - 1; }$/;"	f	class:FastNoiseLite
+FastMax	FastNoiseLite.h	/^    static float FastMax(float a, float b) { return a > b ? a : b; }$/;"	f	class:FastNoiseLite
+FastMin	FastNoiseLite.h	/^    static float FastMin(float a, float b) { return a < b ? a : b; }$/;"	f	class:FastNoiseLite
+FastNoiseLite	FastNoiseLite.h	/^    FastNoiseLite(int seed = 1337)$/;"	f	class:FastNoiseLite
+FastNoiseLite	FastNoiseLite.h	/^class FastNoiseLite$/;"	c
+FastRound	FastNoiseLite.h	/^    static int FastRound(FNfloat f) { return f >= 0 ? (int)(f + 0.5f) : (int)(f - 0.5f); }$/;"	f	class:FastNoiseLite
+FastSqrt	FastNoiseLite.h	/^    static float FastSqrt(float f) { return sqrtf(f); }$/;"	f	class:FastNoiseLite
+FractalType	FastNoiseLite.h	/^    enum FractalType$/;"	g	class:FastNoiseLite
+FractalType_DomainWarpIndependent	FastNoiseLite.h	/^        FractalType_DomainWarpIndependent$/;"	e	enum:FastNoiseLite::FractalType
+FractalType_DomainWarpProgressive	FastNoiseLite.h	/^        FractalType_DomainWarpProgressive,$/;"	e	enum:FastNoiseLite::FractalType
+FractalType_FBm	FastNoiseLite.h	/^        FractalType_FBm,$/;"	e	enum:FastNoiseLite::FractalType
+FractalType_None	FastNoiseLite.h	/^        FractalType_None,$/;"	e	enum:FastNoiseLite::FractalType
+FractalType_PingPong	FastNoiseLite.h	/^        FractalType_PingPong,$/;"	e	enum:FastNoiseLite::FractalType
+FractalType_Ridged	FastNoiseLite.h	/^        FractalType_Ridged,$/;"	e	enum:FastNoiseLite::FractalType
+Gameboard	gameboard.cc	/^Gameboard::Gameboard(int locX, int locY, Gameboard* inWorld)$/;"	f	class:Gameboard
+Gameboard	gameboard.hh	/^class Gameboard$/;"	c
+Gamemaster	gamemaster.cc	/^Gamemaster::Gamemaster()$/;"	f	class:Gamemaster
+Gamemaster	gamemaster.hh	/^class Gamemaster$/;"	c
+GenFractalFBm	FastNoiseLite.h	/^    float GenFractalFBm(FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+GenFractalFBm	FastNoiseLite.h	/^    float GenFractalFBm(FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+GenFractalPingPong	FastNoiseLite.h	/^    float GenFractalPingPong(FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+GenFractalPingPong	FastNoiseLite.h	/^    float GenFractalPingPong(FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+GenFractalRidged	FastNoiseLite.h	/^    float GenFractalRidged(FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+GenFractalRidged	FastNoiseLite.h	/^    float GenFractalRidged(FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+GenNoiseSingle	FastNoiseLite.h	/^    float GenNoiseSingle(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+GenNoiseSingle	FastNoiseLite.h	/^    float GenNoiseSingle(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+GetNoise	FastNoiseLite.h	/^    float GetNoise(FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+GetNoise	FastNoiseLite.h	/^    float GetNoise(FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+GradCoord	FastNoiseLite.h	/^    float GradCoord(int seed, int xPrimed, int yPrimed, float xd, float yd)$/;"	f	class:FastNoiseLite
+GradCoord	FastNoiseLite.h	/^    float GradCoord(int seed, int xPrimed, int yPrimed, int zPrimed, float xd, float yd, float zd)$/;"	f	class:FastNoiseLite
+GradCoordDual	FastNoiseLite.h	/^    void GradCoordDual(int seed, int xPrimed, int yPrimed, float xd, float yd, float& xo, float& yo)$/;"	f	class:FastNoiseLite
+GradCoordDual	FastNoiseLite.h	/^    void GradCoordDual(int seed, int xPrimed, int yPrimed, int zPrimed, float xd, float yd, float zd, float& xo, float& yo, float& zo)$/;"	f	class:FastNoiseLite
+GradCoordOut	FastNoiseLite.h	/^    void GradCoordOut(int seed, int xPrimed, int yPrimed, float& xo, float& yo)$/;"	f	class:FastNoiseLite
+GradCoordOut	FastNoiseLite.h	/^    void GradCoordOut(int seed, int xPrimed, int yPrimed, int zPrimed, float& xo, float& yo, float& zo)$/;"	f	class:FastNoiseLite
+Gradients2D	FastNoiseLite.h	/^        static const T Gradients2D[];$/;"	m	struct:FastNoiseLite::Lookup
+Gradients2D	FastNoiseLite.h	/^const T FastNoiseLite::Lookup<T>::Gradients2D[] =$/;"	m	class:FastNoiseLite::Lookup
+Gradients3D	FastNoiseLite.h	/^        static const T Gradients3D[];$/;"	m	struct:FastNoiseLite::Lookup
+Gradients3D	FastNoiseLite.h	/^const T FastNoiseLite::Lookup<T>::Gradients3D[] =$/;"	m	class:FastNoiseLite::Lookup
+Hash	FastNoiseLite.h	/^    static int Hash(int seed, int xPrimed, int yPrimed)$/;"	f	class:FastNoiseLite
+Hash	FastNoiseLite.h	/^    static int Hash(int seed, int xPrimed, int yPrimed, int zPrimed)$/;"	f	class:FastNoiseLite
+INTERCARDINAL	navigator.hh	/^enum INTERCARDINAL {$/;"	g
+InterpHermite	FastNoiseLite.h	/^    static float InterpHermite(float t) { return t * t * (3 - 2 * t); }$/;"	f	class:FastNoiseLite
+InterpQuintic	FastNoiseLite.h	/^    static float InterpQuintic(float t) { return t * t * t * (t * (t * 6 - 15) + 10); }$/;"	f	class:FastNoiseLite
+LINK_FLAGS	Makefile	/^LINK_FLAGS =$/;"	m
+Lerp	FastNoiseLite.h	/^    static float Lerp(float a, float b, float t) { return a + t * (b - a); }$/;"	f	class:FastNoiseLite
+Lookup	FastNoiseLite.h	/^    struct Lookup$/;"	s	class:FastNoiseLite
+MAX_IC	navigator.hh	/^    MAX_IC = 4 };$/;"	e	enum:INTERCARDINAL
+NE	navigator.hh	/^    NE     = 9,$/;"	e	enum:DIRECTION
+NE_IC	navigator.hh	/^    NE_IC  = 0,$/;"	e	enum:INTERCARDINAL
+NODIR	navigator.hh	/^    NODIR  = 10 };$/;"	e	enum:DIRECTION
+NORTH	navigator.hh	/^    NORTH  = 8,$/;"	e	enum:DIRECTION
+NPC	pawn.cc	/^NPC::NPC( Gameboard* inBoard, int initX, int initY, unsigned char npcT, bool isHstl, double moveP )$/;"	f	class:NPC
+NPC	pawn.hh	/^class NPC : public Pawn$/;"	c
+NW	navigator.hh	/^    NW     = 7,$/;"	e	enum:DIRECTION
+NW_IC	navigator.hh	/^    NW_IC  = 3,$/;"	e	enum:INTERCARDINAL
+Navigator	navigator.cc	/^Navigator::Navigator()$/;"	f	class:Navigator
+Navigator	navigator.hh	/^class Navigator$/;"	c
+NoiseType	FastNoiseLite.h	/^    enum NoiseType$/;"	g	class:FastNoiseLite
+NoiseType_Cellular	FastNoiseLite.h	/^        NoiseType_Cellular,$/;"	e	enum:FastNoiseLite::NoiseType
+NoiseType_OpenSimplex2	FastNoiseLite.h	/^        NoiseType_OpenSimplex2,$/;"	e	enum:FastNoiseLite::NoiseType
+NoiseType_OpenSimplex2S	FastNoiseLite.h	/^        NoiseType_OpenSimplex2S,$/;"	e	enum:FastNoiseLite::NoiseType
+NoiseType_Perlin	FastNoiseLite.h	/^        NoiseType_Perlin,$/;"	e	enum:FastNoiseLite::NoiseType
+NoiseType_Value	FastNoiseLite.h	/^        NoiseType_Value$/;"	e	enum:FastNoiseLite::NoiseType
+NoiseType_ValueCubic	FastNoiseLite.h	/^        NoiseType_ValueCubic,$/;"	e	enum:FastNoiseLite::NoiseType
+OUT_NAME	Makefile	/^OUT_NAME = permadeathvalley.linux$/;"	m
+OUT_NAME	Makefile	/^OUT_NAME = permadeathvalley_WINDOWS$/;"	m
+PNode	navigator.cc	/^PNode::PNode(bLoc loc, bLoc prev, double dist)$/;"	f	class:PNode
+PNode	navigator.hh	/^class PNode$/;"	c
+Pawn	pawn.cc	/^Pawn::Pawn( Gameboard* inBoard, int initX, int initY )$/;"	f	class:Pawn
+Pawn	pawn.hh	/^class Pawn$/;"	c
+PingPong	FastNoiseLite.h	/^    static float PingPong(float t)$/;"	f	class:FastNoiseLite
+PrimeX	FastNoiseLite.h	/^    static const int PrimeX = 501125321;$/;"	m	class:FastNoiseLite
+PrimeY	FastNoiseLite.h	/^    static const int PrimeY = 1136930381;$/;"	m	class:FastNoiseLite
+PrimeZ	FastNoiseLite.h	/^    static const int PrimeZ = 1720413743;$/;"	m	class:FastNoiseLite
+RENDER_FOV	gamemaster.hh	/^    bool RENDER_FOV = true;$/;"	m	class:Gamemaster
+REVERSE	navigator.cc	/^int REVERSE(int fwdDir)$/;"	f
+RandVecs2D	FastNoiseLite.h	/^        static const T RandVecs2D[];$/;"	m	struct:FastNoiseLite::Lookup
+RandVecs2D	FastNoiseLite.h	/^const T FastNoiseLite::Lookup<T>::RandVecs2D[] =$/;"	m	class:FastNoiseLite::Lookup
+RandVecs3D	FastNoiseLite.h	/^        static const T RandVecs3D[];$/;"	m	struct:FastNoiseLite::Lookup
+RandVecs3D	FastNoiseLite.h	/^const T FastNoiseLite::Lookup<T>::RandVecs3D[] =$/;"	m	class:FastNoiseLite::Lookup
+River	river.cc	/^River::River(DIRECTION brdr)$/;"	f	class:River
+River	river.cc	/^River::River(DIRECTION brdr, int indx)$/;"	f	class:River
+River	river.hh	/^class River$/;"	c
+RotationType3D	FastNoiseLite.h	/^    enum RotationType3D$/;"	g	class:FastNoiseLite
+RotationType3D_ImproveXYPlanes	FastNoiseLite.h	/^        RotationType3D_ImproveXYPlanes,$/;"	e	enum:FastNoiseLite::RotationType3D
+RotationType3D_ImproveXZPlanes	FastNoiseLite.h	/^        RotationType3D_ImproveXZPlanes$/;"	e	enum:FastNoiseLite::RotationType3D
+RotationType3D_None	FastNoiseLite.h	/^        RotationType3D_None,$/;"	e	enum:FastNoiseLite::RotationType3D
+SE	navigator.hh	/^    SE     = 3,$/;"	e	enum:DIRECTION
+SE_IC	navigator.hh	/^    SE_IC  = 1,$/;"	e	enum:INTERCARDINAL
+SOUTH	navigator.hh	/^    SOUTH  = 2,$/;"	e	enum:DIRECTION
+SRCS	Makefile	/^SRCS  = main.cc $/;"	m
+SW	navigator.hh	/^    SW     = 1,$/;"	e	enum:DIRECTION
+SW_IC	navigator.hh	/^    SW_IC  = 2,$/;"	e	enum:INTERCARDINAL
+SetCellularDistanceFunction	FastNoiseLite.h	/^    void SetCellularDistanceFunction(CellularDistanceFunction cellularDistanceFunction) { mCellularDistanceFunction = cellularDistanceFunction; }$/;"	f	class:FastNoiseLite
+SetCellularJitter	FastNoiseLite.h	/^    void SetCellularJitter(float cellularJitter) { mCellularJitterModifier = cellularJitter; }$/;"	f	class:FastNoiseLite
+SetCellularReturnType	FastNoiseLite.h	/^    void SetCellularReturnType(CellularReturnType cellularReturnType) { mCellularReturnType = cellularReturnType; }$/;"	f	class:FastNoiseLite
+SetDomainWarpAmp	FastNoiseLite.h	/^    void SetDomainWarpAmp(float domainWarpAmp) { mDomainWarpAmp = domainWarpAmp; }$/;"	f	class:FastNoiseLite
+SetDomainWarpType	FastNoiseLite.h	/^    void SetDomainWarpType(DomainWarpType domainWarpType)$/;"	f	class:FastNoiseLite
+SetFractalGain	FastNoiseLite.h	/^    void SetFractalGain(float gain)$/;"	f	class:FastNoiseLite
+SetFractalLacunarity	FastNoiseLite.h	/^    void SetFractalLacunarity(float lacunarity) { mLacunarity = lacunarity; }$/;"	f	class:FastNoiseLite
+SetFractalOctaves	FastNoiseLite.h	/^    void SetFractalOctaves(int octaves)$/;"	f	class:FastNoiseLite
+SetFractalPingPongStrength	FastNoiseLite.h	/^    void SetFractalPingPongStrength(float pingPongStrength) { mPingPongStength = pingPongStrength; }$/;"	f	class:FastNoiseLite
+SetFractalType	FastNoiseLite.h	/^    void SetFractalType(FractalType fractalType) { mFractalType = fractalType; }$/;"	f	class:FastNoiseLite
+SetFractalWeightedStrength	FastNoiseLite.h	/^    void SetFractalWeightedStrength(float weightedStrength) { mWeightedStrength = weightedStrength; }$/;"	f	class:FastNoiseLite
+SetFrequency	FastNoiseLite.h	/^    void SetFrequency(float frequency) { mFrequency = frequency; }$/;"	f	class:FastNoiseLite
+SetNoiseType	FastNoiseLite.h	/^    void SetNoiseType(NoiseType noiseType)$/;"	f	class:FastNoiseLite
+SetRotationType3D	FastNoiseLite.h	/^    void SetRotationType3D(RotationType3D rotationType3D)$/;"	f	class:FastNoiseLite
+SetSeed	FastNoiseLite.h	/^    void SetSeed(int seed) { mSeed = seed; }$/;"	f	class:FastNoiseLite
+SingleCellular	FastNoiseLite.h	/^    float SingleCellular(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SingleCellular	FastNoiseLite.h	/^    float SingleCellular(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+SingleDomainWarpBasicGrid	FastNoiseLite.h	/^    void SingleDomainWarpBasicGrid(int seed, float warpAmp, float frequency, FNfloat x, FNfloat y, FNfloat z, FNfloat& xr, FNfloat& yr, FNfloat& zr)$/;"	f	class:FastNoiseLite
+SingleDomainWarpBasicGrid	FastNoiseLite.h	/^    void SingleDomainWarpBasicGrid(int seed, float warpAmp, float frequency, FNfloat x, FNfloat y, FNfloat& xr, FNfloat& yr)$/;"	f	class:FastNoiseLite
+SingleDomainWarpOpenSimplex2Gradient	FastNoiseLite.h	/^    void SingleDomainWarpOpenSimplex2Gradient(int seed, float warpAmp, float frequency, FNfloat x, FNfloat y, FNfloat z, FNfloat& xr, FNfloat& yr, FNfloat& zr, bool outGradOnly)$/;"	f	class:FastNoiseLite
+SingleDomainWarpSimplexGradient	FastNoiseLite.h	/^    void SingleDomainWarpSimplexGradient(int seed, float warpAmp, float frequency, FNfloat x, FNfloat y, FNfloat& xr, FNfloat& yr, bool outGradOnly)$/;"	f	class:FastNoiseLite
+SingleOpenSimplex2	FastNoiseLite.h	/^    float SingleOpenSimplex2(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+SingleOpenSimplex2S	FastNoiseLite.h	/^    float SingleOpenSimplex2S(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SingleOpenSimplex2S	FastNoiseLite.h	/^    float SingleOpenSimplex2S(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+SinglePerlin	FastNoiseLite.h	/^    float SinglePerlin(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SinglePerlin	FastNoiseLite.h	/^    float SinglePerlin(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+SingleSimplex	FastNoiseLite.h	/^    float SingleSimplex(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SingleValue	FastNoiseLite.h	/^    float SingleValue(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SingleValue	FastNoiseLite.h	/^    float SingleValue(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+SingleValueCubic	FastNoiseLite.h	/^    float SingleValueCubic(int seed, FNfloat x, FNfloat y)$/;"	f	class:FastNoiseLite
+SingleValueCubic	FastNoiseLite.h	/^    float SingleValueCubic(int seed, FNfloat x, FNfloat y, FNfloat z)$/;"	f	class:FastNoiseLite
+Tile	tile.cc	/^Tile::Tile( int x, int y, int elv )$/;"	f	class:Tile
+Tile	tile.hh	/^class Tile$/;"	c
+TransformDomainWarpCoordinate	FastNoiseLite.h	/^    void TransformDomainWarpCoordinate(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+TransformDomainWarpCoordinate	FastNoiseLite.h	/^    void TransformDomainWarpCoordinate(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+TransformNoiseCoordinate	FastNoiseLite.h	/^    void TransformNoiseCoordinate(FNfloat& x, FNfloat& y)$/;"	f	class:FastNoiseLite
+TransformNoiseCoordinate	FastNoiseLite.h	/^    void TransformNoiseCoordinate(FNfloat& x, FNfloat& y, FNfloat& z)$/;"	f	class:FastNoiseLite
+TransformType3D	FastNoiseLite.h	/^    enum TransformType3D$/;"	g	class:FastNoiseLite
+TransformType3D_DefaultOpenSimplex2	FastNoiseLite.h	/^        TransformType3D_DefaultOpenSimplex2$/;"	e	enum:FastNoiseLite::TransformType3D
+TransformType3D_ImproveXYPlanes	FastNoiseLite.h	/^        TransformType3D_ImproveXYPlanes,$/;"	e	enum:FastNoiseLite::TransformType3D
+TransformType3D_ImproveXZPlanes	FastNoiseLite.h	/^        TransformType3D_ImproveXZPlanes,$/;"	e	enum:FastNoiseLite::TransformType3D
+TransformType3D_None	FastNoiseLite.h	/^        TransformType3D_None,$/;"	e	enum:FastNoiseLite::TransformType3D
+UpdateTransformType3D	FastNoiseLite.h	/^    void UpdateTransformType3D()$/;"	f	class:FastNoiseLite
+UpdateWarpTransformType3D	FastNoiseLite.h	/^    void UpdateWarpTransformType3D()$/;"	f	class:FastNoiseLite
+ValCoord	FastNoiseLite.h	/^    static float ValCoord(int seed, int xPrimed, int yPrimed)$/;"	f	class:FastNoiseLite
+ValCoord	FastNoiseLite.h	/^    static float ValCoord(int seed, int xPrimed, int yPrimed, int zPrimed)$/;"	f	class:FastNoiseLite
+WEST	navigator.hh	/^    WEST   = 4,$/;"	e	enum:DIRECTION
+WINDOW_HEIGHT	gamemaster.hh	/^static const int WINDOW_HEIGHT = 960;$/;"	v
+WINDOW_WIDTH	gamemaster.hh	/^static const int WINDOW_WIDTH  = WINDOW_HEIGHT*1.0;$/;"	v
+__GAMEBOARD_HH__	gameboard.hh	16;"	d
+__GAMEMASTER_HH__	gamemaster.hh	6;"	d
+__NAVIGATOR_HH__	navigator.hh	6;"	d
+__PAWN_HH__	pawn.hh	6;"	d
+__RIVER_HH__	river.hh	6;"	d
+__ROGRAND_HH__	rogrand.hh	6;"	d
+__TILE_HH__	tile.hh	16;"	d
+addBoard	gamemaster.cc	/^Gameboard* Gamemaster::addBoard(int toX, int toY)$/;"	f	class:Gamemaster
+addPlayer	gamemaster.cc	/^Pawn* Gamemaster::addPlayer()$/;"	f	class:Gamemaster
+addXP	pawn.cc	/^int Pawn::addXP(int newXP)$/;"	f	class:Pawn
+adjX	gamemaster.hh	/^    int adjX     = 0;$/;"	m	class:Gamemaster
+adjY	gamemaster.hh	/^    int adjY     = 0;$/;"	m	class:Gamemaster
+bCols	gameboard.hh	/^static const int bCols = 64;$/;"	v
+bLoc	navigator.hh	/^struct bLoc {$/;"	s
+bNPCs	gameboard.hh	/^    vector<NPC*> bNPCs;$/;"	m	class:Gameboard
+bPos	gameboard.hh	/^    bLoc bPos;$/;"	m	class:Gameboard
+bRadius	gameboard.hh	/^static const int bRadius = sqrt(((bRows\/2)^2)+((bCols\/2)^2));$/;"	v
+bRows	gameboard.hh	/^static const int bRows = 64;$/;"	v
+board	gameboard.hh	/^    Tile* board[bRows][bCols];$/;"	m	class:Gameboard
+border	river.hh	/^    DIRECTION border;$/;"	m	class:River
+checkNPCs	gameboard.cc	/^void Gameboard::checkNPCs(bLoc playerPos)$/;"	f	class:Gameboard
+createMap	gameboard.cc	/^bool Gameboard::createMap()$/;"	f	class:Gameboard
+crnrElev	tile.hh	/^    int             crnrElev[4];$/;"	m	class:Tile
+currBoard	gamemaster.hh	/^    Gameboard* currBoard;$/;"	m	class:Gamemaster
+currNPCs	gamemaster.hh	/^    vector<NPC*>* currNPCs;$/;"	m	class:Gamemaster
+dealDmg	pawn.cc	/^int Pawn::dealDmg(Tile* dltTile, signed int dltDmg)$/;"	f	class:Pawn
+deletePlayer	gamemaster.cc	/^void Gamemaster::deletePlayer()$/;"	f	class:Gamemaster
+dyt	pawn.cc	/^void NPC::dyt(bLoc inputPos)$/;"	f	class:NPC
+elev	tile.hh	/^    int             elev;$/;"	m	class:Tile
+elevMax	gameboard.hh	/^    int    elevMax   = 1000;    \/\/ Maximum random elevation$/;"	m	class:Gameboard
+euclidean_dist	navigator.hh	/^inline double euclidean_dist(bLoc loca, bLoc locb) {$/;"	f
+findPath	navigator.cc	/^vector<bLoc> findPath(bLoc here, bLoc there, Gameboard* pBrd, double wtMult)$/;"	f
+gRenderer	gamemaster.hh	/^    SDL_Renderer* gRenderer = nullptr;$/;"	m	class:Gamemaster
+gWindow	gamemaster.hh	/^    SDL_Window*     gWindow = nullptr;$/;"	m	class:Gamemaster
+getActive	pawn.hh	/^    bool        getActive()             { return isActive; };$/;"	f	class:Pawn
+getBoard	gamemaster.cc	/^Gameboard* Gamemaster::getBoard()$/;"	f	class:Gamemaster
+getBoardPos	gameboard.hh	/^    bLoc  getBoardPos() {return bPos;};$/;"	f	class:Gameboard
+getBoardX	gameboard.hh	/^    int   getBoardX()   {return bPos.x;};$/;"	f	class:Gameboard
+getBoardY	gameboard.hh	/^    int   getBoardY()   {return bPos.y;};$/;"	f	class:Gameboard
+getBorder	river.cc	/^DIRECTION River::getBorder()$/;"	f	class:River
+getCols	gameboard.hh	/^    int   getCols()     {return bCols;};$/;"	f	class:Gameboard
+getCrnr	tile.cc	/^int Tile::getCrnr( int cnr )$/;"	f	class:Tile
+getDist	navigator.hh	/^    double getDist() const {return nDist;};$/;"	f	class:PNode
+getElev	tile.cc	/^int Tile::getElev()$/;"	f	class:Tile
+getFresh	tile.cc	/^bool Tile::getFresh()$/;"	f	class:Tile
+getKills	pawn.hh	/^    int         getKills()              { return kills; };$/;"	f	class:Pawn
+getLP	pawn.hh	/^    signed int  getLP()                 { return lp; };$/;"	f	class:Pawn
+getMouth	river.cc	/^bLoc River::getMouth()$/;"	f	class:River
+getMoveProb	pawn.cc	/^double NPC::getMoveProb()$/;"	f	class:NPC
+getNPCs	gameboard.cc	/^vector<NPC*>* Gameboard::getNPCs()$/;"	f	class:Gameboard
+getOccupied	tile.cc	/^bool Tile::getOccupied()$/;"	f	class:Tile
+getPawn	tile.cc	/^Pawn* Tile::getPawn()$/;"	f	class:Tile
+getPlayer	pawn.hh	/^    bool        getPlayer()             { return isPlayer; };$/;"	f	class:Pawn
+getPos	navigator.hh	/^    bLoc   getPos()  const {return nPos;};$/;"	f	class:PNode
+getPos	pawn.hh	/^    bLoc        getPos()                { return mPos; };$/;"	f	class:Pawn
+getPos	tile.cc	/^bLoc Tile::getPos()$/;"	f	class:Tile
+getPrev	navigator.hh	/^    bLoc   getPrev() const {return pPos;};$/;"	f	class:PNode
+getRows	gameboard.hh	/^    int   getRows()     {return bRows;};$/;"	f	class:Gameboard
+getTerrain	tile.cc	/^unsigned char Tile::getTerrain()$/;"	f	class:Tile
+getTexture	pawn.hh	/^    SDL_Texture* getTexture()           { return pawnTexture; };$/;"	f	class:Pawn
+getTexture	tile.hh	/^    SDL_Texture* getTexture() { return tileTexture; };$/;"	f	class:Tile
+getTile	gameboard.cc	/^Tile* Gameboard::getTile(int row, int col)$/;"	f	class:Gameboard
+getTileSize	gamemaster.cc	/^int Gamemaster::getTileSize()$/;"	f	class:Gamemaster
+getType	pawn.hh	/^    unsigned char getType() { return pawnType; };$/;"	f	class:Pawn
+getX	pawn.hh	/^    int         getX()                  { return mPos.x; };$/;"	f	class:Pawn
+getX	tile.cc	/^int Tile::getX()$/;"	f	class:Tile
+getXP	pawn.hh	/^    int         getXP()                 { return xp; };$/;"	f	class:Pawn
+getY	pawn.hh	/^    int         getY()                  { return mPos.y; };$/;"	f	class:Pawn
+getY	tile.cc	/^int Tile::getY()$/;"	f	class:Tile
+hasPawn	tile.cc	/^bool Tile::hasPawn()$/;"	f	class:Tile
+iBoard	gamemaster.hh	/^    vector<Gameboard*>::iterator iBoard;$/;"	m	class:Gamemaster
+init	gamemaster.cc	/^int Gamemaster::init()$/;"	f	class:Gamemaster
+isActive	pawn.hh	/^    bool isActive;$/;"	m	class:Pawn
+isFresh	tile.hh	/^    bool            isFresh;$/;"	m	class:Tile
+isHostile	pawn.hh	/^    bool isHostile;$/;"	m	class:NPC
+isPlayer	pawn.hh	/^    bool isPlayer;$/;"	m	class:Pawn
+isVulnerable	pawn.hh	/^    bool        isVulnerable()          { return vulnerable; };$/;"	f	class:Pawn
+kills	pawn.hh	/^    int kills;$/;"	m	class:Pawn
+lp	pawn.hh	/^    signed int lp;$/;"	m	class:Pawn
+mBoard	gamemaster.hh	/^    vector<Gameboard*>           mBoard;$/;"	m	class:Gamemaster
+mBoard	pawn.hh	/^    Gameboard* mBoard;$/;"	m	class:Pawn
+mCellularDistanceFunction	FastNoiseLite.h	/^    CellularDistanceFunction mCellularDistanceFunction;$/;"	m	class:FastNoiseLite
+mCellularJitterModifier	FastNoiseLite.h	/^    float mCellularJitterModifier;$/;"	m	class:FastNoiseLite
+mCellularReturnType	FastNoiseLite.h	/^    CellularReturnType mCellularReturnType;$/;"	m	class:FastNoiseLite
+mDomainWarpAmp	FastNoiseLite.h	/^    float mDomainWarpAmp;$/;"	m	class:FastNoiseLite
+mDomainWarpType	FastNoiseLite.h	/^    DomainWarpType mDomainWarpType;$/;"	m	class:FastNoiseLite
+mFractalBounding	FastNoiseLite.h	/^    float mFractalBounding;$/;"	m	class:FastNoiseLite
+mFractalType	FastNoiseLite.h	/^    FractalType mFractalType;$/;"	m	class:FastNoiseLite
+mFrequency	FastNoiseLite.h	/^    float mFrequency;$/;"	m	class:FastNoiseLite
+mGain	FastNoiseLite.h	/^    float mGain;$/;"	m	class:FastNoiseLite
+mLacunarity	FastNoiseLite.h	/^    float mLacunarity;$/;"	m	class:FastNoiseLite
+mNoiseType	FastNoiseLite.h	/^    NoiseType mNoiseType;$/;"	m	class:FastNoiseLite
+mOctaves	FastNoiseLite.h	/^    int mOctaves;$/;"	m	class:FastNoiseLite
+mPingPongStength	FastNoiseLite.h	/^    float mPingPongStength;$/;"	m	class:FastNoiseLite
+mPos	pawn.hh	/^    bLoc mPos;$/;"	m	class:Pawn
+mRivers	gameboard.hh	/^    vector<River*> mRivers;         \/\/ River mouths on this board$/;"	m	class:Gameboard
+mRotationType3D	FastNoiseLite.h	/^    RotationType3D mRotationType3D;$/;"	m	class:FastNoiseLite
+mSeed	FastNoiseLite.h	/^    int mSeed;$/;"	m	class:FastNoiseLite
+mTransformType3D	FastNoiseLite.h	/^    TransformType3D mTransformType3D;$/;"	m	class:FastNoiseLite
+mWarpTransformType3D	FastNoiseLite.h	/^    TransformType3D mWarpTransformType3D;$/;"	m	class:FastNoiseLite
+mWeightedStrength	FastNoiseLite.h	/^    float mWeightedStrength;$/;"	m	class:FastNoiseLite
+main	main.cc	/^int main( int argc, char* args[] )$/;"	f
+manhattan_dist	navigator.hh	/^inline double manhattan_dist(bLoc loca, bLoc locb) {$/;"	f
+mouth	river.hh	/^    bLoc      mouth;$/;"	m	class:River
+moveBack	pawn.cc	/^void Pawn::moveBack()$/;"	f	class:Pawn
+moveDir	pawn.cc	/^DIRECTION Pawn::moveDir( int direction )$/;"	f	class:Pawn
+moveProb	pawn.hh	/^    double moveProb;$/;"	m	class:NPC
+moveTo	pawn.cc	/^DIRECTION Pawn::moveTo( bLoc toPos )$/;"	f	class:Pawn
+moveTo	pawn.cc	/^DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)$/;"	f	class:Pawn
+moveToBoard	gamemaster.cc	/^int Gamemaster::moveToBoard(DIRECTION bDir)$/;"	f	class:Gamemaster
+myPath	pawn.hh	/^    vector<bLoc> myPath;$/;"	m	class:Pawn
+myPawn	tile.hh	/^    Pawn*           myPawn;$/;"	m	class:Tile
+nDist	navigator.hh	/^    double nDist;$/;"	m	class:PNode
+nPos	navigator.hh	/^    bLoc   nPos;    \/\/ this Node's position$/;"	m	class:PNode
+numRivers	gameboard.hh	/^    int numRivers = 2;              \/\/ Total # of rivers (flowing to center)$/;"	m	class:Gameboard
+numTxtrs	gamemaster.hh	/^    static const int numTxtrs = 5;      \/\/ Total number of terrain textures$/;"	m	class:Gamemaster
+occupied	tile.hh	/^    bool            occupied;$/;"	m	class:Tile
+operator !=	navigator.cc	/^bool operator!=(const bLoc& lhs, const bLoc& rhs) {$/;"	f
+operator ()	navigator.cc	/^    bool operator()(const PNode* lhs, const PNode* rhs) const {$/;"	f	struct:CmpNodeDist
+operator +	navigator.cc	/^bLoc operator+(const bLoc& lhs, const bLoc& rhs) {$/;"	f
+operator -	navigator.cc	/^bLoc operator-(const bLoc& lhs, const bLoc& rhs) {$/;"	f
+operator ==	navigator.cc	/^bool operator==(const bLoc& lhs, const bLoc& rhs) {$/;"	f
+pPos	navigator.hh	/^    bLoc   pPos;    \/\/ previous Node's position$/;"	m	class:PNode
+pawnTexture	pawn.hh	/^    SDL_Texture* pawnTexture;$/;"	m	class:Pawn
+pawnType	pawn.hh	/^    unsigned char pawnType;$/;"	m	class:Pawn
+placeEntities	gameboard.cc	/^void Gameboard::placeEntities()$/;"	f	class:Gameboard
+player	gamemaster.hh	/^    Pawn* player;$/;"	m	class:Gamemaster
+prevPos	pawn.hh	/^    bLoc prevPos;$/;"	m	class:Pawn
+randI	rogrand.cc	/^    int randI(int iMin, int iMax)$/;"	f	namespace:rogrand
+randI10	rogrand.cc	/^    int randI10()   { return dist10(mt); }$/;"	f	namespace:rogrand
+randI100	rogrand.cc	/^    int randI100()  { return dist100(mt); }$/;"	f	namespace:rogrand
+randI1000	rogrand.cc	/^    int randI1000() { return dist1000(mt); }$/;"	f	namespace:rogrand
+renderBoard	gamemaster.cc	/^void Gamemaster::renderBoard()$/;"	f	class:Gamemaster
+renderBoard	gamemaster.cc	/^void Gamemaster::renderBoard(Gameboard* rndrBoard)$/;"	f	class:Gamemaster
+renderPawn	gamemaster.cc	/^void Gamemaster::renderPawn( Pawn* pwn )$/;"	f	class:Gamemaster
+renderTile	gamemaster.cc	/^void Gamemaster::renderTile( Tile* tile )$/;"	f	class:Gamemaster
+riverWidth	gameboard.hh	/^    int riverWidth = 3;             \/\/ River width and variation$/;"	m	class:Gameboard
+riversAvail	gameboard.hh	/^    vector<DIRECTION> riversAvail;  \/\/ Directions available for river mouths$/;"	m	class:Gameboard
+rmvPawn	tile.cc	/^void Tile::rmvPawn()$/;"	f	class:Tile
+rogrand	rogrand.cc	/^namespace rogrand$/;"	n	file:
+rogrand	rogrand.hh	/^namespace rogrand {$/;"	n
+rvrElevWeight	gameboard.hh	/^    double rvrElevWeight = 10.0;    \/\/ Terrain weighting for finding river paths$/;"	m	class:Gameboard
+saveBoardBMP	gamemaster.cc	/^bool Gamemaster::saveBoardBMP(Gameboard* saveBrd, char* filepath)$/;"	f	class:Gamemaster
+seed	rogrand.cc	/^    unsigned int seed = std::chrono::high_resolution_clock::now().time_since_epoch().count();$/;"	m	namespace:rogrand	file:
+setActive	pawn.cc	/^bool Pawn::setActive(bool inAct)$/;"	f	class:Pawn
+setBoard	gamemaster.cc	/^void Gamemaster::setBoard(Gameboard* toBoard)$/;"	f	class:Gamemaster
+setBoard	pawn.cc	/^void Pawn::setBoard( Gameboard* inBoard )$/;"	f	class:Pawn
+setCrnr	tile.cc	/^void Tile::setCrnr( int cnr, int cnrElv )$/;"	f	class:Tile
+setElev	tile.cc	/^void Tile::setElev( int elv )$/;"	f	class:Tile
+setFresh	tile.cc	/^void Tile::setFresh()$/;"	f	class:Tile
+setFresh	tile.cc	/^void Tile::setFresh(bool newFresh)$/;"	f	class:Tile
+setLP	pawn.cc	/^void Pawn::setLP(int inLP)$/;"	f	class:Pawn
+setMouth	river.cc	/^void River::setMouth(bLoc mouthLoc)$/;"	f	class:River
+setMouth	river.cc	/^void River::setMouth(int indx)$/;"	f	class:River
+setMoveProb	pawn.cc	/^void NPC::setMoveProb(double inProb)$/;"	f	class:NPC
+setPawn	tile.cc	/^void Tile::setPawn(Pawn* inPawn)$/;"	f	class:Tile
+setPlayer	pawn.cc	/^void Pawn::setPlayer()$/;"	f	class:Pawn
+setTerrain	tile.cc	/^void Tile::setTerrain( unsigned char terrType )$/;"	f	class:Tile
+setTexture	pawn.cc	/^void Pawn::setTexture(SDL_Texture* pTxtr)$/;"	f	class:Pawn
+setTexture	tile.cc	/^void Tile::setTexture(SDL_Texture* tTxtr)$/;"	f	class:Tile
+setVulnerable	pawn.cc	/^void Pawn::setVulnerable( bool isVuln)$/;"	f	class:Pawn
+swapRenderMode	gamemaster.cc	/^void Gamemaster::swapRenderMode()$/;"	f	class:Gamemaster
+tPos	tile.hh	/^    bLoc            tPos;$/;"	m	class:Tile
+takeDmg	pawn.cc	/^int Pawn::takeDmg(signed int tknDmg)$/;"	f	class:Pawn
+terrain	tile.hh	/^    unsigned char   terrain;$/;"	m	class:Tile
+threshT00	gameboard.hh	/^    double threshT00 = 0.000;   \/\/ Terrain threshold to be elevation 0, Deep Water$/;"	m	class:Gameboard
+threshT01	gameboard.hh	/^    double threshT01 = 0.010;   \/\/ Terrain threshold to be elevation 1, Shallow Water$/;"	m	class:Gameboard
+threshT02	gameboard.hh	/^    double threshT02 = 0.020;   \/\/ Terrain threshold to be elevation 2, Sand$/;"	m	class:Gameboard
+threshT03	gameboard.hh	/^    double threshT03 = 0.450;   \/\/ Terrain threshold to be elevation 3, Dirt$/;"	m	class:Gameboard
+threshT04	gameboard.hh	/^    double threshT04 = 0.820;   \/\/ Terrain threshold to be elevation 4, Mesa$/;"	m	class:Gameboard
+tileSize	gamemaster.hh	/^    int tileSize = tileSizeFOV;$/;"	m	class:Gamemaster
+tileSizeBOARD	gamemaster.hh	/^    static const int tileSizeBOARD = WINDOW_HEIGHT\/bRows;$/;"	m	class:Gamemaster
+tileSizeFOV	gamemaster.hh	/^    static const int tileSizeFOV   = WINDOW_HEIGHT\/vRows;$/;"	m	class:Gamemaster
+tileTexture	tile.hh	/^    SDL_Texture* tileTexture;$/;"	m	class:Tile
+toPrint	gamemaster.cc	/^void Gamemaster::toPrint()$/;"	f	class:Gamemaster
+toPrint	tile.cc	/^void Tile::toPrint()$/;"	f	class:Tile
+turnCount	gamemaster.hh	/^    int turnCount;$/;"	m	class:Gamemaster
+txtrAgua	gamemaster.hh	/^    SDL_Texture* txtrAgua;$/;"	m	class:Gamemaster
+txtrBandit	gamemaster.hh	/^    SDL_Texture* txtrBandit;$/;"	m	class:Gamemaster
+txtrCactus	gamemaster.hh	/^    SDL_Texture* txtrCactus[3];$/;"	m	class:Gamemaster
+txtrCow	gamemaster.hh	/^    SDL_Texture* txtrCow;$/;"	m	class:Gamemaster
+txtrCowboy	gamemaster.hh	/^    SDL_Texture* txtrCowboy;$/;"	m	class:Gamemaster
+txtrCrnr	gamemaster.hh	/^    SDL_Texture* txtrCrnr[numTxtrs*MAX_IC];  \/\/ Corner Textures (4 per terrain level)$/;"	m	class:Gamemaster
+txtrDesert	gamemaster.hh	/^    SDL_Texture* txtrDesert;$/;"	m	class:Gamemaster
+txtrError	gamemaster.hh	/^    SDL_Texture* txtrError;$/;"	m	class:Gamemaster
+txtrGila	gamemaster.hh	/^    SDL_Texture* txtrGila;$/;"	m	class:Gamemaster
+txtrMesa	gamemaster.hh	/^    SDL_Texture* txtrMesa;$/;"	m	class:Gamemaster
+txtrTerr	gamemaster.hh	/^    SDL_Texture* txtrTerr[numTxtrs];    \/\/ Terrain Textures$/;"	m	class:Gamemaster
+update	gamemaster.cc	/^void Gamemaster::update()$/;"	f	class:Gamemaster
+updateFlags	tile.cc	/^void Tile::updateFlags()$/;"	f	class:Tile
+vCols	gameboard.hh	/^static const int vCols = 64;$/;"	v
+vRadius	gameboard.hh	/^static const int vRadius = sqrt(((vRows\/2)^2)+((vCols\/2)^2));$/;"	v
+vRows	gameboard.hh	/^static const int vRows = 64;$/;"	v
+vulnerable	pawn.hh	/^    bool vulnerable;$/;"	m	class:Pawn
+wCols	gameboard.hh	/^static const int wCols = 64;$/;"	v
+wPos	gamemaster.hh	/^    bLoc       wPos;$/;"	m	class:Gamemaster
+wRadius	gameboard.hh	/^static const int wRadius = sqrt(((wRows\/2)^2)+((wCols\/2)^2));$/;"	v
+wRows	gameboard.hh	/^static const int wRows = 64;$/;"	v
+worldBoard	gamemaster.hh	/^    Gameboard* worldBoard;$/;"	m	class:Gamemaster
+x	navigator.hh	/^    int x;$/;"	m	struct:bLoc
+xp	pawn.hh	/^    int xp;$/;"	m	class:Pawn
+y	navigator.hh	/^    int y; };$/;"	m	struct:bLoc
+~Gameboard	gameboard.cc	/^Gameboard::~Gameboard()$/;"	f	class:Gameboard
+~Gamemaster	gamemaster.cc	/^Gamemaster::~Gamemaster()$/;"	f	class:Gamemaster
+~Navigator	navigator.cc	/^Navigator::~Navigator()$/;"	f	class:Navigator
+~PNode	navigator.cc	/^PNode::~PNode()$/;"	f	class:PNode
+~Pawn	pawn.cc	/^Pawn::~Pawn()$/;"	f	class:Pawn
+~River	river.cc	/^River::~River()$/;"	f	class:River
+~Tile	tile.cc	/^Tile::~Tile()$/;"	f	class:Tile
