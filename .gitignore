@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Project-specific files
+tags
+*.swp
+*.swo
+permadeathvalley.linux
