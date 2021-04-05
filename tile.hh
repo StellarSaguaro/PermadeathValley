@@ -56,9 +56,9 @@ public:
     int   getElev();
     void  setCrnr(int,int);
     int   getCrnr(int);
-    bLoc  getPos();
-    int   getX();
-    int   getY();
+    bLoc  getWorldPos();
+    int   getWorldX();
+    int   getWorldY();
 //    void  setFOVPos(bLoc);
 //    bLoc  getFOVPos();
 //    int   getFOVX();

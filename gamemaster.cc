@@ -9,7 +9,7 @@ Gamemaster::Gamemaster()
     init();
 
     // Create the world and game boards
-    worldBoard = new Gameboard(-1,-1);
+    worldBoard = new Gameboard(-1,-1,wRows,wCols);
 
     for (int jj=0; jj<(wRows/bRows); jj++)
     {
@@ -19,8 +19,7 @@ Gamemaster::Gamemaster()
         }
     }
 
-    //setBoard(addBoard(wPos.x, wPos.y));
-    setBoard(mBoard.back());
+    setBoard(mBoard[randI(0,mBoard.size()-1)]);
 
     currNPCs = currBoard->getNPCs();
 
@@ -215,11 +214,6 @@ int Gamemaster::init()
     txtrError = SDL_CreateTextureFromSurface( gRenderer, srfcTemp );
     SDL_FreeSurface( srfcTemp );
 
-    if (RENDER_FOV) {
-        tileSize = tileSizeFOV; }
-    else {
-        tileSize = tileSizeBOARD; }
-
     wPos.x    = 0;
     wPos.y    = 0;
     currBoard = nullptr;
@@ -235,7 +229,7 @@ int Gamemaster::getTileSize()
 
 void Gamemaster::renderTile( Tile* tile )
 {
-    if (tile->getFresh() || RENDER_FOV)
+    // if (tile->getFresh() || RENDER_FOV)
     {
         //SDL_Texture* tTxtr = nullptr;
         //if ((tile->getElev()>=0) && (tile->getElev()<numTxtrs))
@@ -251,27 +245,12 @@ void Gamemaster::renderTile( Tile* tile )
         //// DEBUG: For testing tile occupied status
         //if (tile->getOccupied()) {tTxtr = txtrError;}
 
-        if (RENDER_FOV)
-        {
-            adjX = -player->getX()+(vCols/2);
-            adjY = -player->getY()+(vRows/2);
-        }
-
         SDL_Rect tRect;
-        tRect = { (tile->getX()+adjX)*tileSize, (tile->getY()+adjY)*tileSize, tileSize, tileSize };
+        tRect = { (tile->getWorldX()-(bCols*currBoard->getWorldX()))*tileSize,
+                  (tile->getWorldY()-(bRows*currBoard->getWorldY()))*tileSize,
+                  tileSize,
+                  tileSize };
         SDL_RenderCopy( gRenderer, tTxtr, nullptr, &(tRect) );
-
-/*
-        // Render tiles's corners
-        for (int iC=0; iC<MAX_IC; iC++) {
-            //printf("DEBUG: Getting corner texture at index: %2d\n",tile->getElev()*MAX_IC+tile->getCrnr(iC)); fflush(stdout);
-            SDL_Texture* cTxtr = txtrCrnr[tile->getCrnr(iC)*MAX_IC+iC];
-
-            SDL_Rect cRect;
-            cRect = { (tile->getX()+adjX)*tileSize, (tile->getY()+adjY)*tileSize,tileSize, tileSize };
-            SDL_RenderCopy( gRenderer, cTxtr, nullptr, &(cRect) );
-        }
-*/
 
         tile->setFresh(false);
     }
@@ -279,14 +258,11 @@ void Gamemaster::renderTile( Tile* tile )
 
 void Gamemaster::renderPawn( Pawn* pwn )
 {
-    if (RENDER_FOV)
-    {
-        adjX = -player->getX()+(vCols/2);
-        adjY = -player->getY()+(vRows/2);
-    }
-
     SDL_Rect tRect;
-    tRect = { (pwn->getX()+adjX)*tileSize, (pwn->getY()+adjY)*tileSize, tileSize, tileSize };
+    tRect = { (pwn->getWorldX()-(bCols*currBoard->getWorldX()))*tileSize,
+              (pwn->getWorldY()-(bRows*currBoard->getWorldY()))*tileSize,
+              tileSize,
+              tileSize };
     SDL_RenderCopy( gRenderer, pwn->getTexture(), nullptr, &(tRect) );
 }
 
@@ -299,7 +275,7 @@ Pawn* Gamemaster::addPlayer()
         tmpY = randI(0,bRows-1);
     } while ( currBoard->getTile(tmpY,tmpX)->getOccupied() );
 
-    player = new Pawn( currBoard, tmpX, tmpY );
+    player = new Pawn(currBoard,tmpX+(currBoard->getWorldX()*bCols),tmpY+(currBoard->getWorldY()*bRows));
     player->setPlayer();
     player->setLP(100);
 
@@ -312,15 +288,14 @@ Pawn* Gamemaster::addPlayer()
 
 void Gamemaster::deletePlayer()
 {
-    currBoard->getTile(player->getY(),player->getX())->rmvPawn();
+    currBoard->getTile(player->getBoardY(),player->getBoardX())->rmvPawn();
     delete player;
     player = nullptr;
 }
 
 Gameboard* Gamemaster::addBoard(int toX, int toY)
 {
-    // TODO: determine if player should gain xp for exploring new boards
-    mBoard.push_back(new Gameboard(toX, toY, worldBoard));
+    mBoard.push_back(new Gameboard(toX, toY, bRows, bCols, worldBoard));
     return mBoard.back();
 }
 
@@ -353,12 +328,8 @@ void Gamemaster::renderBoard()
 
 void Gamemaster::renderBoard(Gameboard* rndrBoard)
 {
-    if (RENDER_FOV)
-    {
-        //Clear screen, render texture, update screen
-        //printf("DEBUG: Begin renderBoard. Turn: %4d\n", turnCount);
-        SDL_RenderClear( gRenderer );
-    }
+
+    SDL_RenderClear( gRenderer );
 
     if (nullptr != rndrBoard) { // Render a blank board if nullptr is passed
         for (int jj=0; jj<bRows; jj++) {
@@ -380,19 +351,6 @@ void Gamemaster::swapRenderMode()
 {
     RENDER_FOV = !RENDER_FOV;
 
-    if (RENDER_FOV)
-    {
-        tileSize = tileSizeFOV;
-        adjX = -player->getX()+(vCols/2);
-        adjY = -player->getY()+(vRows/2);
-    }
-    else
-    {
-        tileSize = tileSizeBOARD;
-        adjX = 0;
-        adjY = 0;
-    }
-
     for (int jj=0; jj<bRows; jj++) {
         for (int ii=0; ii<bCols; ii++) {
             currBoard->getTile(jj,ii)->setFresh();
@@ -404,12 +362,12 @@ void Gamemaster::swapRenderMode()
 void Gamemaster::update()
 {
     // Remove NPCs with with <=0 life
-    currBoard->checkNPCs(player->getPos());
+    currBoard->checkNPCs(player->getBoardPos());
 
     // Tell each NPC to "do your thing"
     // TODO: Consider adding a method to Gameboard to handle the dyt of its bNPCs
     for (vector<NPC*>::iterator iNPC=currNPCs->begin(); iNPC!=currNPCs->end(); ++iNPC) {
-        (*iNPC)->dyt(player->getPos());
+        (*iNPC)->dyt(player->getBoardPos());
     }
 
     turnCount++;
@@ -426,10 +384,10 @@ void Gamemaster::toPrint()
 
     // Find Max and Min world locations
     for (iBoard=mBoard.begin(); iBoard!=mBoard.end(); iBoard++) {
-        Xmin = std::min(Xmin, (*iBoard)->getBoardX());
-        Xmax = std::max(Xmax, (*iBoard)->getBoardX());
-        Ymin = std::min(Ymin, (*iBoard)->getBoardY());
-        Ymax = std::max(Ymax, (*iBoard)->getBoardY());
+        Xmin = std::min(Xmin, (*iBoard)->getWorldX());
+        Xmax = std::max(Xmax, (*iBoard)->getWorldX());
+        Ymin = std::min(Ymin, (*iBoard)->getWorldY());
+        Ymax = std::max(Ymax, (*iBoard)->getWorldY());
     }
     Xspan = Xmax-Xmin+1;
     Yspan = Ymax-Ymin+1;
@@ -445,7 +403,7 @@ void Gamemaster::toPrint()
     }
 
     for (iBoard=mBoard.begin(); iBoard!=mBoard.end(); iBoard++) {
-        wMap[(*iBoard)->getBoardY()-Ymin][(*iBoard)->getBoardX()-Xmin] = 1;
+        wMap[(*iBoard)->getWorldY()-Ymin][(*iBoard)->getWorldX()-Xmin] = 1;
     }
 
     // Print the "world map" to the terminal
@@ -472,8 +430,8 @@ void Gamemaster::toPrint()
 
     // Save screenshots of the boards
     for (iBoard=mBoard.begin(); iBoard!=mBoard.end(); iBoard++) {
-        //printf("DEBUG: world_%04dx%04d.bmp\n",(*iBoard)->getBoardX()-Xmin,(*iBoard)->getBoardY()-Ymin); fflush(stdout);
-        sprintf(fName,"world_%04dx%04d.bmp",(*iBoard)->getBoardY()-Ymin,(*iBoard)->getBoardX()-Xmin);
+        //printf("DEBUG: world_%04dx%04d.bmp\n",(*iBoard)->getWorldX()-Xmin,(*iBoard)->getWorldY()-Ymin); fflush(stdout);
+        sprintf(fName,"world_%04dx%04d.bmp",(*iBoard)->getWorldY()-Ymin,(*iBoard)->getWorldX()-Xmin);
         saveBoardBMP(*iBoard,fName);
     }
     //renderBoard();

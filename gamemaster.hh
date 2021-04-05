@@ -26,6 +26,16 @@ using namespace rogrand;
 static const int WINDOW_HEIGHT = 960;
 static const int WINDOW_WIDTH  = WINDOW_HEIGHT*1.0;
 
+// World Size
+static const int wRows = 128;
+static const int wCols = 128;
+static const int wRadius = sqrt(((wRows/2)^2)+((wCols/2)^2));
+
+// Board Size
+static const int bRows = 64;
+static const int bCols = 64;
+static const int bRadius = sqrt(((bRows/2)^2)+((bCols/2)^2));
+
 class Gamemaster
 {
 private:
@@ -33,11 +43,8 @@ private:
     int turnCount;
 
     //Tile size (side length in pixels)
-    static const int tileSizeFOV   = WINDOW_HEIGHT/vRows;
     static const int tileSizeBOARD = WINDOW_HEIGHT/bRows;
-    int tileSize = tileSizeFOV;
-    int adjX     = 0;
-    int adjY     = 0;
+    int tileSize = tileSizeBOARD;
 
     // Sprite Textures
     static const int numTxtrs = 5;      // Total number of terrain textures
@@ -57,7 +64,7 @@ private:
     // FOV vs. Board Render Flag
     //  true = only render field of view (vRows x vCols)
     //  false = render full board (bRows x bCols)
-    bool RENDER_FOV = true;
+    bool RENDER_FOV = false;
 
 public:
     // SDL window and renderer

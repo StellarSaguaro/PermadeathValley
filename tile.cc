@@ -81,17 +81,17 @@ int Tile::getCrnr( int cnr )
     return crnrElev[cnr];
 }
 
-bLoc Tile::getPos()
+bLoc Tile::getWorldPos()
 {
     return tPos;
 }
 
-int Tile::getX()
+int Tile::getWorldX()
 {
     return tPos.x;
 }
 
-int Tile::getY()
+int Tile::getWorldY()
 {
     return tPos.y;
 }

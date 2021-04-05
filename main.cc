@@ -139,7 +139,7 @@ int main( int argc, char* args[] )
 
                     ////printf("DEBUG: Mouse Click! [%2d,%2d]\n",(evnt.button.x/DM->getTileSize()),(evnt.button.y/DM->getTileSize())); fflush(stdout);
                     bLoc tempLoc = {(evnt.button.x/DM->getTileSize()),(evnt.button.y/DM->getTileSize())};
-                    moveQ = findPath(player1->getPos(), tempLoc, DM->getBoard());
+                    moveQ = findPath(player1->getBoardPos(), tempLoc, DM->getBoard());
                     break;
             }
         }

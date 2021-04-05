@@ -29,9 +29,8 @@ private:
     bool isPlayer;
 
     // Pawn Location
-    bLoc mPos;
+    bLoc wPos;  // World position
     bLoc prevPos;
-//    bLoc fovPos;
 
     SDL_Texture* pawnTexture;
 
@@ -79,13 +78,18 @@ public:
 
     // Accessors
     bool        getPlayer()             { return isPlayer; };
-    bLoc        getPos()                { return mPos; };
-    int         getX()                  { return mPos.x; };
-    int         getY()                  { return mPos.y; };
-    //void        setFOVPos(bLoc fPos)    { fovPos = fPos; };
-    //bLoc        getFOVPos()             { return fovPos; };
-    //int         getFOVX()               { return fovPos.x; };
-    //int         getFOVY()               { return fovPos.y; };
+    bLoc        getWorldPos()           { return wPos; };
+    int         getWorldX()             { return wPos.x; };
+    int         getWorldY()             { return wPos.y; };
+
+    // TODO: try default args to remove multiple functions
+    bLoc        getBoardPos();
+    bLoc        getBoardPos(bLoc inPos);
+    int         getBoardX();
+    int         getBoardX(int inX);
+    int         getBoardY();
+    int         getBoardY(int inY);
+
     bool        isVulnerable()          { return vulnerable; };
     signed int  getLP()                 { return lp; };
     int         getXP()                 { return xp; };

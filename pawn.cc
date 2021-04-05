@@ -12,7 +12,7 @@ Pawn::Pawn( Gameboard* inBoard, int initX, int initY )
     pawnType  = '@';
     pawnTexture = nullptr;
 
-    mPos    = bLoc{initX,initY};
+    wPos    = bLoc{initX,initY};
     prevPos = bLoc{initX,initY};
 
     vulnerable = true;
@@ -22,6 +22,7 @@ Pawn::Pawn( Gameboard* inBoard, int initX, int initY )
     kills = 0;
 
     mBoard = inBoard;
+
 }
 
 Pawn::~Pawn()
@@ -45,7 +46,7 @@ void Pawn::setTexture(SDL_Texture* pTxtr)
 
 DIRECTION Pawn::moveDir( int direction )
 {
-    bLoc tmpPos = mPos;
+    bLoc tmpPos = getBoardPos(wPos);
 
     switch (direction) {
         case SW:
@@ -107,12 +108,9 @@ DIRECTION Pawn::moveTo( bLoc toPos )
 
 DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
 {
-    //if (isPlayer)
-    //{
-    //    printf("DEBUG: Pawn::moveTo toX = %4d, toY = %4d\n", toX, toY); fflush(stdout);
-    //}
+    //printf("DEBUG: Pawn::moveTo toX = %4d, toY = %4d\n", toX, toY); fflush(stdout);
 
-    if ((mPos.x == toX) && (mPos.y == toY)) {
+    if ((getBoardX(wPos.x) == toX) && (getBoardY(wPos.y) == toY)) {
         //printf("DEBUG: Pawn::moveTo Waiting here....\n"); fflush(stdout);
         return CENTER;
     }
@@ -125,20 +123,16 @@ DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
     }
     else if (!mBoard->getTile(toY,toX)->getOccupied())
     {
-        prevPos = mPos;
-        mBoard->getTile(prevPos.y,prevPos.x)->rmvPawn();
+        prevPos = wPos;
+        mBoard->getTile(getBoardY(),getBoardX())->rmvPawn();
 
-        mPos.x = toX;
-        mPos.y = toY;
+        wPos.x = toX+(mBoard->getCols()*mBoard->getWorldX());
+        wPos.y = toY+(mBoard->getRows()*mBoard->getWorldY());
 
         // Update tile occupation if not moving to new board
-        mBoard->getTile(mPos.y,mPos.x)->setPawn(this);
+        mBoard->getTile(toY,toX)->setPawn(this);
 
-        //if (isPlayer)
-        //{
-        //    printf("DEBUG: Pawn::moveTo mPos.x = %4d, mPos.Y = %4d\n", mPos.x, mPos.y); fflush(stdout);
-        //}
-
+        //printf("DEBUG: Pawn::moveTo wPos.x = %4d, wPos.Y = %4d\n", wPos.x, wPos.y); fflush(stdout);
         return CENTER;
     }
     else {
@@ -150,21 +144,48 @@ DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
 void Pawn::moveBack()
 {
     //printf("DEBUG: Pawn::moveBack Prev Pos = [%2d,%2d]\n",prevPos.x,prevPos.y); fflush(stdout);
-    mPos = prevPos;
+    wPos = prevPos;
 }
 
 void Pawn::setBoard( Gameboard* inBoard )
 {
     mBoard = inBoard;
-    mBoard->getTile(mPos.y,mPos.x)->setPawn(this);
+    mBoard->getTile(getBoardY(),getBoardX())->setPawn(this);
 }
+
+bLoc Pawn::getBoardPos()
+{
+    return bLoc{wPos.x-(mBoard->getCols()*mBoard->getWorldX()),
+                wPos.y-(mBoard->getRows()*mBoard->getWorldY())};
+}
+bLoc Pawn::getBoardPos(bLoc inPos)
+{
+    return bLoc{inPos.x-(mBoard->getCols()*mBoard->getWorldX()),
+                inPos.y-(mBoard->getRows()*mBoard->getWorldY())};
+}
+
+int Pawn::getBoardX()
+{
+    return wPos.x-(mBoard->getCols()*mBoard->getWorldX());
+};
+int Pawn::getBoardX(int inX)
+{
+    return inX-(mBoard->getCols()*mBoard->getWorldX());
+};
+
+int Pawn::getBoardY()
+{
+    return wPos.y-(mBoard->getRows()*mBoard->getWorldY());
+};
+int Pawn::getBoardY(int inY)
+{
+    return inY-(mBoard->getRows()*mBoard->getWorldY());
+};
 
 void Pawn::setVulnerable( bool isVuln)
 {
     vulnerable = isVuln;
 }
-
-
 
 void Pawn::setLP(int inLP)
 {
@@ -208,7 +229,7 @@ int Pawn::takeDmg(signed int tknDmg)
 
     if (lp<=0) {
         printf("INFO: Pawn::takeDmg %1c killed. Returning XP = %3d\n",pawnType,xp); fflush(stdout);
-        mBoard->checkNPCs(mPos);
+        mBoard->checkNPCs(wPos);
         // TODO: Evaluate when xp should be awarded (non-hostile, immobile, etc.)
         return xp;
     }
@@ -245,13 +266,13 @@ void NPC::dyt(bLoc inputPos)
         {
             if (isHostile)
             {
-                myPath = findPath(getPos(),inputPos,mBoard);    // Try to find a path to the player
+                myPath = findPath(getBoardPos(),inputPos,mBoard);    // Try to find a path to the player
             }
 
             if (myPath.empty())
             {
                 // Pick a random location on the map and wander to it
-                myPath = findPath(getPos(),
+                myPath = findPath(getBoardPos(),
                                   bLoc{randI(0,mBoard->getCols()-1),randI(0,mBoard->getRows()-1)},
                                   mBoard);
             }

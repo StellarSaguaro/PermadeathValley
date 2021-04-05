@@ -58,7 +58,7 @@ FractalType_FBm	FastNoiseLite.h	/^        FractalType_FBm,$/;"	e	enum:FastNoiseL
 FractalType_None	FastNoiseLite.h	/^        FractalType_None,$/;"	e	enum:FastNoiseLite::FractalType
 FractalType_PingPong	FastNoiseLite.h	/^        FractalType_PingPong,$/;"	e	enum:FastNoiseLite::FractalType
 FractalType_Ridged	FastNoiseLite.h	/^        FractalType_Ridged,$/;"	e	enum:FastNoiseLite::FractalType
-Gameboard	gameboard.cc	/^Gameboard::Gameboard(int locX, int locY, Gameboard* inWorld)$/;"	f	class:Gameboard
+Gameboard	gameboard.cc	/^Gameboard::Gameboard(int locX, int locY, int inRows, int inCols, Gameboard* inWorld)$/;"	f	class:Gameboard
 Gameboard	gameboard.hh	/^class Gameboard$/;"	c
 Gamemaster	gamemaster.cc	/^Gamemaster::Gamemaster()$/;"	f	class:Gamemaster
 Gamemaster	gamemaster.hh	/^class Gamemaster$/;"	c
@@ -118,7 +118,7 @@ PingPong	FastNoiseLite.h	/^    static float PingPong(float t)$/;"	f	class:FastNo
 PrimeX	FastNoiseLite.h	/^    static const int PrimeX = 501125321;$/;"	m	class:FastNoiseLite
 PrimeY	FastNoiseLite.h	/^    static const int PrimeY = 1136930381;$/;"	m	class:FastNoiseLite
 PrimeZ	FastNoiseLite.h	/^    static const int PrimeZ = 1720413743;$/;"	m	class:FastNoiseLite
-RENDER_FOV	gamemaster.hh	/^    bool RENDER_FOV = true;$/;"	m	class:Gamemaster
+RENDER_FOV	gamemaster.hh	/^    bool RENDER_FOV = false;$/;"	m	class:Gamemaster
 REVERSE	navigator.cc	/^int REVERSE(int fwdDir)$/;"	f
 RandVecs2D	FastNoiseLite.h	/^        static const T RandVecs2D[];$/;"	m	struct:FastNoiseLite::Lookup
 RandVecs2D	FastNoiseLite.h	/^const T FastNoiseLite::Lookup<T>::RandVecs2D[] =$/;"	m	class:FastNoiseLite::Lookup
@@ -196,15 +196,16 @@ __TILE_HH__	tile.hh	16;"	d
 addBoard	gamemaster.cc	/^Gameboard* Gamemaster::addBoard(int toX, int toY)$/;"	f	class:Gamemaster
 addPlayer	gamemaster.cc	/^Pawn* Gamemaster::addPlayer()$/;"	f	class:Gamemaster
 addXP	pawn.cc	/^int Pawn::addXP(int newXP)$/;"	f	class:Pawn
-adjX	gamemaster.hh	/^    int adjX     = 0;$/;"	m	class:Gamemaster
-adjY	gamemaster.hh	/^    int adjY     = 0;$/;"	m	class:Gamemaster
-bCols	gameboard.hh	/^static const int bCols = 64;$/;"	v
+bCols	gameboard.hh	/^    int bCols;$/;"	m	class:Gameboard
+bCols	gamemaster.hh	/^static const int bCols = 64;$/;"	v
 bLoc	navigator.hh	/^struct bLoc {$/;"	s
 bNPCs	gameboard.hh	/^    vector<NPC*> bNPCs;$/;"	m	class:Gameboard
 bPos	gameboard.hh	/^    bLoc bPos;$/;"	m	class:Gameboard
-bRadius	gameboard.hh	/^static const int bRadius = sqrt(((bRows\/2)^2)+((bCols\/2)^2));$/;"	v
-bRows	gameboard.hh	/^static const int bRows = 64;$/;"	v
-board	gameboard.hh	/^    Tile* board[bRows][bCols];$/;"	m	class:Gameboard
+bRadius	gameboard.hh	/^    int bRadius;$/;"	m	class:Gameboard
+bRadius	gamemaster.hh	/^static const int bRadius = sqrt(((bRows\/2)^2)+((bCols\/2)^2));$/;"	v
+bRows	gameboard.hh	/^    int bRows;$/;"	m	class:Gameboard
+bRows	gamemaster.hh	/^static const int bRows = 64;$/;"	v
+board	gameboard.hh	/^    vector<vector<Tile*>> board;$/;"	m	class:Gameboard
 border	river.hh	/^    DIRECTION border;$/;"	m	class:River
 checkNPCs	gameboard.cc	/^void Gameboard::checkNPCs(bLoc playerPos)$/;"	f	class:Gameboard
 createMap	gameboard.cc	/^bool Gameboard::createMap()$/;"	f	class:Gameboard
@@ -223,8 +224,12 @@ gWindow	gamemaster.hh	/^    SDL_Window*     gWindow = nullptr;$/;"	m	class:Gamem
 getActive	pawn.hh	/^    bool        getActive()             { return isActive; };$/;"	f	class:Pawn
 getBoard	gamemaster.cc	/^Gameboard* Gamemaster::getBoard()$/;"	f	class:Gamemaster
 getBoardPos	gameboard.hh	/^    bLoc  getBoardPos() {return bPos;};$/;"	f	class:Gameboard
-getBoardX	gameboard.hh	/^    int   getBoardX()   {return bPos.x;};$/;"	f	class:Gameboard
-getBoardY	gameboard.hh	/^    int   getBoardY()   {return bPos.y;};$/;"	f	class:Gameboard
+getBoardPos	pawn.cc	/^bLoc Pawn::getBoardPos()$/;"	f	class:Pawn
+getBoardPos	pawn.cc	/^bLoc Pawn::getBoardPos(bLoc inPos)$/;"	f	class:Pawn
+getBoardX	pawn.cc	/^int Pawn::getBoardX()$/;"	f	class:Pawn
+getBoardX	pawn.cc	/^int Pawn::getBoardX(int inX)$/;"	f	class:Pawn
+getBoardY	pawn.cc	/^int Pawn::getBoardY()$/;"	f	class:Pawn
+getBoardY	pawn.cc	/^int Pawn::getBoardY(int inY)$/;"	f	class:Pawn
 getBorder	river.cc	/^DIRECTION River::getBorder()$/;"	f	class:River
 getCols	gameboard.hh	/^    int   getCols()     {return bCols;};$/;"	f	class:Gameboard
 getCrnr	tile.cc	/^int Tile::getCrnr( int cnr )$/;"	f	class:Tile
@@ -240,8 +245,6 @@ getOccupied	tile.cc	/^bool Tile::getOccupied()$/;"	f	class:Tile
 getPawn	tile.cc	/^Pawn* Tile::getPawn()$/;"	f	class:Tile
 getPlayer	pawn.hh	/^    bool        getPlayer()             { return isPlayer; };$/;"	f	class:Pawn
 getPos	navigator.hh	/^    bLoc   getPos()  const {return nPos;};$/;"	f	class:PNode
-getPos	pawn.hh	/^    bLoc        getPos()                { return mPos; };$/;"	f	class:Pawn
-getPos	tile.cc	/^bLoc Tile::getPos()$/;"	f	class:Tile
 getPrev	navigator.hh	/^    bLoc   getPrev() const {return pPos;};$/;"	f	class:PNode
 getRows	gameboard.hh	/^    int   getRows()     {return bRows;};$/;"	f	class:Gameboard
 getTerrain	tile.cc	/^unsigned char Tile::getTerrain()$/;"	f	class:Tile
@@ -250,11 +253,15 @@ getTexture	tile.hh	/^    SDL_Texture* getTexture() { return tileTexture; };$/;"	
 getTile	gameboard.cc	/^Tile* Gameboard::getTile(int row, int col)$/;"	f	class:Gameboard
 getTileSize	gamemaster.cc	/^int Gamemaster::getTileSize()$/;"	f	class:Gamemaster
 getType	pawn.hh	/^    unsigned char getType() { return pawnType; };$/;"	f	class:Pawn
-getX	pawn.hh	/^    int         getX()                  { return mPos.x; };$/;"	f	class:Pawn
-getX	tile.cc	/^int Tile::getX()$/;"	f	class:Tile
+getWorldPos	pawn.hh	/^    bLoc        getWorldPos()           { return wPos; };$/;"	f	class:Pawn
+getWorldPos	tile.cc	/^bLoc Tile::getWorldPos()$/;"	f	class:Tile
+getWorldX	gameboard.hh	/^    int   getWorldX()   {return bPos.x;};$/;"	f	class:Gameboard
+getWorldX	pawn.hh	/^    int         getWorldX()             { return wPos.x; };$/;"	f	class:Pawn
+getWorldX	tile.cc	/^int Tile::getWorldX()$/;"	f	class:Tile
+getWorldY	gameboard.hh	/^    int   getWorldY()   {return bPos.y;};$/;"	f	class:Gameboard
+getWorldY	pawn.hh	/^    int         getWorldY()             { return wPos.y; };$/;"	f	class:Pawn
+getWorldY	tile.cc	/^int Tile::getWorldY()$/;"	f	class:Tile
 getXP	pawn.hh	/^    int         getXP()                 { return xp; };$/;"	f	class:Pawn
-getY	pawn.hh	/^    int         getY()                  { return mPos.y; };$/;"	f	class:Pawn
-getY	tile.cc	/^int Tile::getY()$/;"	f	class:Tile
 hasPawn	tile.cc	/^bool Tile::hasPawn()$/;"	f	class:Tile
 iBoard	gamemaster.hh	/^    vector<Gameboard*>::iterator iBoard;$/;"	m	class:Gamemaster
 init	gamemaster.cc	/^int Gamemaster::init()$/;"	f	class:Gamemaster
@@ -280,8 +287,7 @@ mLacunarity	FastNoiseLite.h	/^    float mLacunarity;$/;"	m	class:FastNoiseLite
 mNoiseType	FastNoiseLite.h	/^    NoiseType mNoiseType;$/;"	m	class:FastNoiseLite
 mOctaves	FastNoiseLite.h	/^    int mOctaves;$/;"	m	class:FastNoiseLite
 mPingPongStength	FastNoiseLite.h	/^    float mPingPongStength;$/;"	m	class:FastNoiseLite
-mPos	pawn.hh	/^    bLoc mPos;$/;"	m	class:Pawn
-mRivers	gameboard.hh	/^    vector<River*> mRivers;         \/\/ River mouths on this board$/;"	m	class:Gameboard
+mRivers	gameboard.hh	/^    vector<bLoc> mRivers;           \/\/ River mouths on this board$/;"	m	class:Gameboard
 mRotationType3D	FastNoiseLite.h	/^    RotationType3D mRotationType3D;$/;"	m	class:FastNoiseLite
 mSeed	FastNoiseLite.h	/^    int mSeed;$/;"	m	class:FastNoiseLite
 mTransformType3D	FastNoiseLite.h	/^    TransformType3D mTransformType3D;$/;"	m	class:FastNoiseLite
@@ -356,9 +362,8 @@ threshT01	gameboard.hh	/^    double threshT01 = 0.010;   \/\/ Terrain threshold 
 threshT02	gameboard.hh	/^    double threshT02 = 0.020;   \/\/ Terrain threshold to be elevation 2, Sand$/;"	m	class:Gameboard
 threshT03	gameboard.hh	/^    double threshT03 = 0.450;   \/\/ Terrain threshold to be elevation 3, Dirt$/;"	m	class:Gameboard
 threshT04	gameboard.hh	/^    double threshT04 = 0.820;   \/\/ Terrain threshold to be elevation 4, Mesa$/;"	m	class:Gameboard
-tileSize	gamemaster.hh	/^    int tileSize = tileSizeFOV;$/;"	m	class:Gamemaster
+tileSize	gamemaster.hh	/^    int tileSize = tileSizeBOARD;$/;"	m	class:Gamemaster
 tileSizeBOARD	gamemaster.hh	/^    static const int tileSizeBOARD = WINDOW_HEIGHT\/bRows;$/;"	m	class:Gamemaster
-tileSizeFOV	gamemaster.hh	/^    static const int tileSizeFOV   = WINDOW_HEIGHT\/vRows;$/;"	m	class:Gamemaster
 tileTexture	tile.hh	/^    SDL_Texture* tileTexture;$/;"	m	class:Tile
 toPrint	gamemaster.cc	/^void Gamemaster::toPrint()$/;"	f	class:Gamemaster
 toPrint	tile.cc	/^void Tile::toPrint()$/;"	f	class:Tile
@@ -376,14 +381,12 @@ txtrMesa	gamemaster.hh	/^    SDL_Texture* txtrMesa;$/;"	m	class:Gamemaster
 txtrTerr	gamemaster.hh	/^    SDL_Texture* txtrTerr[numTxtrs];    \/\/ Terrain Textures$/;"	m	class:Gamemaster
 update	gamemaster.cc	/^void Gamemaster::update()$/;"	f	class:Gamemaster
 updateFlags	tile.cc	/^void Tile::updateFlags()$/;"	f	class:Tile
-vCols	gameboard.hh	/^static const int vCols = 64;$/;"	v
-vRadius	gameboard.hh	/^static const int vRadius = sqrt(((vRows\/2)^2)+((vCols\/2)^2));$/;"	v
-vRows	gameboard.hh	/^static const int vRows = 64;$/;"	v
 vulnerable	pawn.hh	/^    bool vulnerable;$/;"	m	class:Pawn
-wCols	gameboard.hh	/^static const int wCols = 64;$/;"	v
+wCols	gamemaster.hh	/^static const int wCols = 128;$/;"	v
 wPos	gamemaster.hh	/^    bLoc       wPos;$/;"	m	class:Gamemaster
-wRadius	gameboard.hh	/^static const int wRadius = sqrt(((wRows\/2)^2)+((wCols\/2)^2));$/;"	v
-wRows	gameboard.hh	/^static const int wRows = 64;$/;"	v
+wPos	pawn.hh	/^    bLoc wPos;  \/\/ World position$/;"	m	class:Pawn
+wRadius	gamemaster.hh	/^static const int wRadius = sqrt(((wRows\/2)^2)+((wCols\/2)^2));$/;"	v
+wRows	gamemaster.hh	/^static const int wRows = 128;$/;"	v
 worldBoard	gamemaster.hh	/^    Gameboard* worldBoard;$/;"	m	class:Gamemaster
 x	navigator.hh	/^    int x;$/;"	m	struct:bLoc
 xp	pawn.hh	/^    int xp;$/;"	m	class:Pawn
