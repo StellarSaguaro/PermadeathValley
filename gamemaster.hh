@@ -27,13 +27,13 @@ static const int WINDOW_HEIGHT = 960;
 static const int WINDOW_WIDTH  = WINDOW_HEIGHT*1.0;
 
 // World Size
-static const int wRows = 128;
-static const int wCols = 128;
+static const int wRows = 320;
+static const int wCols = 320;
 static const int wRadius = sqrt(((wRows/2)^2)+((wCols/2)^2));
 
 // Board Size
-static const int bRows = 64;
-static const int bCols = 64;
+static const int bRows = 32;
+static const int bCols = 32;
 static const int bRadius = sqrt(((bRows/2)^2)+((bCols/2)^2));
 
 class Gamemaster
@@ -85,6 +85,7 @@ public:
     void swapRenderMode();
 
     // Gamemaster Methods
+    int        getTurn() {return turnCount;};
     Gameboard* addBoard(int, int);
     int        moveToBoard(DIRECTION);
     void       setBoard(Gameboard*);

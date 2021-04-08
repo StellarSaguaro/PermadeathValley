@@ -65,7 +65,7 @@ public:
     void      setLoc( int, int );
     void      setBoard( Gameboard* );
     DIRECTION moveDir(int);
-    DIRECTION moveTo(bLoc);
+    DIRECTION moveTo(bLoc, bool dmgMove=true);
     DIRECTION moveTo(int toX, int toY, bool dmgMove=true);
     void      moveBack();
     void      setLP(int);
@@ -78,10 +78,11 @@ public:
 
     // Accessors
     bool        getPlayer()             { return isPlayer; };
+
+    // TODO: make BOARD position default variable
     bLoc        getWorldPos()           { return wPos; };
     int         getWorldX()             { return wPos.x; };
     int         getWorldY()             { return wPos.y; };
-
     // TODO: try default args to remove multiple functions
     bLoc        getBoardPos();
     bLoc        getBoardPos(bLoc inPos);
@@ -125,3 +126,4 @@ public:
 
 #endif
 // EOF
+

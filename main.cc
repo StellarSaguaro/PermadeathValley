@@ -77,8 +77,10 @@ int main( int argc, char* args[] )
 #endif
             }
         }
-        else {
-            switch ( evnt.type ) {
+        else
+        {
+            switch ( evnt.type )
+            {
                 case SDL_QUIT:
                     quit = true;
                     break;
@@ -150,13 +152,15 @@ int main( int argc, char* args[] )
 
         // Set board based on player movement
         if (!(boardDir==CENTER || boardDir==NODIR)) {
-            //printf("DEBUG: Moving in direction %2d\n",boardDir); fflush(stdout);
+            printf("DEBUG: Moving in direction %2d\n",boardDir); fflush(stdout);
             DM->moveToBoard(boardDir);
         }
 
         // Update all actors on DM's current board
         // Render board with updated player position
-        if (updtBoard) {
+        if (updtBoard)
+        {
+            printf("DEBUG: ========== TURN %6d ====================\n\n",DM->getTurn());
             DM->update();
             DM->renderBoard();
         }

@@ -48,7 +48,8 @@ DIRECTION Pawn::moveDir( int direction )
 {
     bLoc tmpPos = getBoardPos(wPos);
 
-    switch (direction) {
+    switch (direction)
+    {
         case SW:
             --tmpPos.x;
             ++tmpPos.y;
@@ -85,25 +86,25 @@ DIRECTION Pawn::moveDir( int direction )
             break;
     }
 
-    // Don't let characters exceed board dimensions
-    if ((tmpPos.x < 0) ||
-        (tmpPos.x > mBoard->getCols()-1) ||
-        (tmpPos.y < 0) ||
-        (tmpPos.y > mBoard->getRows()-1))
-    {
-        return NODIR;
-        //tmpPos.x = max(tmpPos.x,0);
-        //tmpPos.x = min(tmpPos.x,mBoard->getCols()-1);
-        //tmpPos.y = max(tmpPos.y,0);
-        //tmpPos.y = min(tmpPos.y,mBoard->getRows()-1);
-    }
+//    // Don't let characters exceed board dimensions
+//    if ((tmpPos.x < 0) ||
+//        (tmpPos.x > mBoard->getCols()-1) ||
+//        (tmpPos.y < 0) ||
+//        (tmpPos.y > mBoard->getRows()-1))
+//    {
+//        return NODIR;
+//        //tmpPos.x = max(tmpPos.x,0);
+//        //tmpPos.x = min(tmpPos.x,mBoard->getCols()-1);
+//        //tmpPos.y = max(tmpPos.y,0);
+//        //tmpPos.y = min(tmpPos.y,mBoard->getRows()-1);
+//    }
 
     return ( moveTo( tmpPos.x, tmpPos.y) );
 }
 
-DIRECTION Pawn::moveTo( bLoc toPos )
+DIRECTION Pawn::moveTo(bLoc toPos, bool dmgMove)
 {
-    return moveTo(toPos.x,toPos.y);
+    return moveTo(toPos.x,toPos.y,dmgMove);
 }
 
 DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
@@ -115,30 +116,66 @@ DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
         return CENTER;
     }
 
-    // TODO: Evaluate if non-hostile NPCs should deal damage
-    if (dmgMove && mBoard->getTile(toY,toX)->hasPawn()) {
-        printf("INFO: Pawn::moveTo  %1c dealing damage\n",pawnType); fflush(stdout);
-        addXP(dealDmg(mBoard->getTile(toY,toX),1));
-        return CENTER;
+    prevPos = wPos;
+    mBoard->getTile(getBoardY(),getBoardX())->rmvPawn();
+
+    DIRECTION wDir = NODIR;  // World travel direction
+    if (toX < 0) {
+        if (toY < 0) {
+            wDir = NW;
+        }
+        else if (toY >= mBoard->getRows()) {
+            wDir = SW;
+        }
+        else {
+            wDir = WEST;
+        }
     }
-    else if (!mBoard->getTile(toY,toX)->getOccupied())
-    {
-        prevPos = wPos;
-        mBoard->getTile(getBoardY(),getBoardX())->rmvPawn();
-
-        wPos.x = toX+(mBoard->getCols()*mBoard->getWorldX());
-        wPos.y = toY+(mBoard->getRows()*mBoard->getWorldY());
-
-        // Update tile occupation if not moving to new board
-        mBoard->getTile(toY,toX)->setPawn(this);
-
-        //printf("DEBUG: Pawn::moveTo wPos.x = %4d, wPos.Y = %4d\n", wPos.x, wPos.y); fflush(stdout);
-        return CENTER;
+    else if (toX >= mBoard->getCols()) {
+        if (toY < 0) {
+            wDir = NE;
+        }
+        else if (toY >= mBoard->getRows()) {
+            wDir = SE;
+        }
+        else {
+            wDir = EAST;
+        }
+    }
+    else if (toY < 0) {
+        wDir = NORTH;
+    }
+    else if (toY >= mBoard->getRows()) {
+        wDir = SOUTH;
     }
     else {
-        //printf("INFO: Pawn::moveTo Destination occupied.\n"); fflush(stdout);
-        return NODIR;
+        wDir = CENTER;
+
+        if (dmgMove && mBoard->getTile(toY,toX)->hasPawn())
+        {
+            printf("INFO: Pawn::moveTo  %1c dealing damage\n",pawnType); fflush(stdout);
+            addXP(dealDmg(mBoard->getTile(toY,toX),1));
+        }
     }
+
+    //if (!mBoard->getTile(toY,toX)->getOccupied())
+    //{
+        wPos.x = toX+(mBoard->getCols()*mBoard->getWorldX());
+        wPos.y = toY+(mBoard->getRows()*mBoard->getWorldY());
+    //}
+    //else
+    //{
+    //    //printf("INFO: Pawn::moveTo Destination occupied.\n"); fflush(stdout);
+    //    wDir = NODIR;
+    //}
+
+    if (CENTER == wDir)
+    {
+        mBoard->getTile(getBoardY(),getBoardX())->setPawn(this);
+    }
+
+    printf("DEBUG: Pawn::moveTo wPos.x = %4d, wPos.Y = %4d, wDir = %4d\n", wPos.x, wPos.y, wDir); fflush(stdout);
+    return wDir;
 }
 
 void Pawn::moveBack()
@@ -279,11 +316,13 @@ void NPC::dyt(bLoc inputPos)
 
             if (!myPath.empty())
             {
-                int toDir = moveTo(myPath.back());
-                if (NODIR==toDir) {
+                int toDir = moveTo(myPath.back(),isHostile);
+                if (NODIR==toDir)
+                {
                     myPath.clear(); // bumbed into something, stop moving
                 }
-                else {
+                else
+                {
                     myPath.pop_back();
                 }
             }

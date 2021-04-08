@@ -23,34 +23,34 @@ Gamemaster::Gamemaster()
 
     currNPCs = currBoard->getNPCs();
 
-    // Give pawns their textures
-    for (vector<NPC*>::iterator iNPC=currNPCs->begin(); iNPC!=currNPCs->end(); ++iNPC)
-    {
-        switch ((*iNPC)->getType())
-        {
-            case '@':
-                (*iNPC)->setTexture(txtrCowboy);
-                break;
-            case 'b':
-                (*iNPC)->setTexture(txtrBandit);
-                break;
-            case 'm':
-                (*iNPC)->setTexture(txtrMesa);
-                break;
-            case 'c':
-                (*iNPC)->setTexture(txtrCactus[randI(0,2)]);
-                break;
-            case 'g':
-                (*iNPC)->setTexture(txtrGila);
-                break;
-            case 'w':
-                (*iNPC)->setTexture(txtrCow);
-                break;
-            default:
-                (*iNPC)->setTexture(txtrError);
-                break;
-        }
-    }
+    //// Give pawns their textures
+    //for (vector<NPC*>::iterator iNPC=currNPCs->begin(); iNPC!=currNPCs->end(); ++iNPC)
+    //{
+    //    switch ((*iNPC)->getType())
+    //    {
+    //        case '@':
+    //            (*iNPC)->setTexture(txtrCowboy);
+    //            break;
+    //        case 'b':
+    //            (*iNPC)->setTexture(txtrBandit);
+    //            break;
+    //        case 'm':
+    //            (*iNPC)->setTexture(txtrMesa);
+    //            break;
+    //        case 'c':
+    //            (*iNPC)->setTexture(txtrCactus[randI(0,2)]);
+    //            break;
+    //        case 'g':
+    //            (*iNPC)->setTexture(txtrGila);
+    //            break;
+    //        case 'w':
+    //            (*iNPC)->setTexture(txtrCow);
+    //            break;
+    //        default:
+    //            (*iNPC)->setTexture(txtrError);
+    //            break;
+    //    }
+    //}
 }
 
 Gamemaster::~Gamemaster()
@@ -229,6 +229,10 @@ int Gamemaster::getTileSize()
 
 void Gamemaster::renderTile( Tile* tile )
 {
+    //printf("DEBUG: Gamemaster::renderTile rendering tile at [%4d,%4d].\n",
+    //       (tile->getWorldX()-(bCols*currBoard->getWorldX())),
+    //       (tile->getWorldY()-(bRows*currBoard->getWorldY()))); fflush(stdout);
+
     // if (tile->getFresh() || RENDER_FOV)
     {
         //SDL_Texture* tTxtr = nullptr;
@@ -258,12 +262,44 @@ void Gamemaster::renderTile( Tile* tile )
 
 void Gamemaster::renderPawn( Pawn* pwn )
 {
+    //printf("DEBUG: Gamemaster::renderPawn rendering pawn %1c at [%4d,%4d].\n",
+    //       (pwn->getType()),
+    //       (pwn->getWorldX()-(bCols*currBoard->getWorldX())),
+    //       (pwn->getWorldY()-(bRows*currBoard->getWorldY()))); fflush(stdout);
+
+    SDL_Texture* pTxtr = nullptr;
+    switch (pwn->getType())
+    {
+        case '@':
+            pTxtr = txtrCowboy;
+            break;
+        case 'b':
+            pTxtr = txtrBandit;
+            break;
+        case 'm':
+            pTxtr = txtrMesa;
+            break;
+        case 'c':
+            pTxtr = txtrCactus[2];
+            break;
+        case 'g':
+            pTxtr = txtrGila;
+            break;
+        case 'w':
+            pTxtr = txtrCow;
+            break;
+        default:
+            pTxtr = txtrError;
+            break;
+    }
+
     SDL_Rect tRect;
     tRect = { (pwn->getWorldX()-(bCols*currBoard->getWorldX()))*tileSize,
               (pwn->getWorldY()-(bRows*currBoard->getWorldY()))*tileSize,
               tileSize,
               tileSize };
-    SDL_RenderCopy( gRenderer, pwn->getTexture(), nullptr, &(tRect) );
+    //SDL_RenderCopy( gRenderer, pwn->getTexture(), nullptr, &(tRect) );
+    SDL_RenderCopy( gRenderer, pTxtr, nullptr, &(tRect) );
 }
 
 Pawn* Gamemaster::addPlayer()
@@ -279,7 +315,7 @@ Pawn* Gamemaster::addPlayer()
     player->setPlayer();
     player->setLP(100);
 
-    player->setTexture(txtrCowboy);
+    //player->setTexture(txtrCowboy);
 
     currBoard->getTile(tmpY,tmpX)->setPawn(player);
 
@@ -301,14 +337,68 @@ Gameboard* Gamemaster::addBoard(int toX, int toY)
 
 int Gamemaster::moveToBoard(DIRECTION bDir)
 {
-    return CENTER;
+    if ((CENTER == bDir) || (NODIR == bDir)) {
+        return CENTER;
+    }
+
+    // Check what's at the world location in the input direction
+    //printf("DEBUG: Gamemaster::moveToBoard set new board in direction (%2d).\n", bDir); fflush(stdout);
+    bLoc tmpPos = wPos;
+    switch (bDir) {
+        case NW:
+            tmpPos.x--;
+            tmpPos.y--;
+            break;
+        case NORTH:
+            tmpPos.y--;
+            break;
+        case NE:
+            tmpPos.x++;
+            tmpPos.y--;
+            break;
+        case EAST:
+            tmpPos.x++;
+            break;
+        case SE:
+            tmpPos.x++;
+            tmpPos.y++;
+            break;
+        case SOUTH:
+            tmpPos.y++;
+            break;
+        case SW:
+            tmpPos.x--;
+            tmpPos.y++;
+            break;
+        case WEST:
+            tmpPos.x--;
+            break;
+        default:
+            printf("ERROR: Gamemaster::moveToBoard invalid world direction (%2d).\n", bDir);
+            fflush(stdout);
+            exit(EXIT_FAILURE);
+    }
+
+    for (iBoard=mBoard.begin(); iBoard != mBoard.end(); iBoard++)
+    {
+        if ( (tmpPos.x == (*iBoard)->getWorldX()) &&
+             (tmpPos.y == (*iBoard)->getWorldY()) &&
+             (tmpPos.x >= 0) &&
+             (tmpPos.y >= 0))
+        {
+            setBoard(*iBoard);
+            return bDir;
+        }
+    }
+
+    return NODIR;
 }
 
 void Gamemaster::setBoard(Gameboard* toBoard)
 {
     currBoard = toBoard;
-    wPos      = currBoard->getBoardPos();
-    currNPCs  = currBoard->getNPCs();
+    wPos      = toBoard->getBoardPos();
+    currNPCs  = toBoard->getNPCs();
     if (nullptr!=player)
     {
         player->setBoard(currBoard);
@@ -328,15 +418,17 @@ void Gamemaster::renderBoard()
 
 void Gamemaster::renderBoard(Gameboard* rndrBoard)
 {
-
     SDL_RenderClear( gRenderer );
 
     if (nullptr != rndrBoard) { // Render a blank board if nullptr is passed
-        for (int jj=0; jj<bRows; jj++) {
-            for (int ii=0; ii<bCols; ii++) {
+        for (int jj=0; jj<bRows; jj++)
+        {
+            for (int ii=0; ii<bCols; ii++)
+            {
                 renderTile(rndrBoard->getTile(jj,ii));
 
-                if (rndrBoard->getTile(jj,ii)->hasPawn()) {
+                if (rndrBoard->getTile(jj,ii)->hasPawn())
+                {
                     renderPawn(rndrBoard->getTile(jj,ii)->getPawn());
                 }
             }
