@@ -214,7 +214,7 @@ void Gameboard::placeEntities()
                     bNPCs.push_back(new NPC(this, wPosX, wPosY, 'c', false, 0.0));
                     board[jj][ii]->setPawn(bNPCs.back());
                 }
-                else if (randI1000()<20)
+                else if (randI1000()<2)
                 {
                     int randTmp = randI1000();
                     if (randTmp<900)

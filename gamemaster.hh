@@ -32,8 +32,8 @@ static const int wCols = 320;
 static const int wRadius = sqrt(((wRows/2)^2)+((wCols/2)^2));
 
 // Board Size
-static const int bRows = 32;
-static const int bCols = 32;
+static const int bRows = 64;
+static const int bCols = 64;
 static const int bRadius = sqrt(((bRows/2)^2)+((bCols/2)^2));
 
 class Gamemaster

@@ -174,7 +174,7 @@ DIRECTION Pawn::moveTo( int toX, int toY, bool dmgMove)
         mBoard->getTile(getBoardY(),getBoardX())->setPawn(this);
     }
 
-    printf("DEBUG: Pawn::moveTo wPos.x = %4d, wPos.Y = %4d, wDir = %4d\n", wPos.x, wPos.y, wDir); fflush(stdout);
+    //printf("DEBUG: Pawn::moveTo wPos.x = %4d, wPos.Y = %4d, wDir = %4d\n", wPos.x, wPos.y, wDir); fflush(stdout);
     return wDir;
 }
 

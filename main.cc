@@ -152,7 +152,7 @@ int main( int argc, char* args[] )
 
         // Set board based on player movement
         if (!(boardDir==CENTER || boardDir==NODIR)) {
-            printf("DEBUG: Moving in direction %2d\n",boardDir); fflush(stdout);
+            //printf("DEBUG: Moving in direction %2d\n",boardDir); fflush(stdout);
             DM->moveToBoard(boardDir);
         }
 
